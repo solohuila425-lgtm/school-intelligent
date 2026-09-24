@@ -1,10 +1,10 @@
 {
-  "framework": "vite",
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "framework": null,
+  "installCommand": "cd immersive-frontend && npm install",
+  "buildCommand": "cd immersive-frontend && npm run build",
+  "outputDirectory": "immersive-frontend/dist",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/immersive-frontend/index.html" }
   ],
   "trailingSlash": false
 }

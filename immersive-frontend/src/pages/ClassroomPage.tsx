@@ -6,8 +6,8 @@ import { SceneContainer } from "../canvas-3d/SceneContainer";
 import { TeacherDashboard } from "../components/TeacherDashboard";
 import { StudentDashboard } from "../components/StudentDashboard";
 
-const CRDT_SERVER_URL = import.meta.env.VITE_CRDT_SERVER_URL ?? "ws://localhost:4444";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8200";
+const CRDT_SERVER_URL = import.meta.env.VITE_CRDT_SERVER_URL ?? "";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "";
 interface SuggestedComponent { component_type: "object3d" | "formula" | "highlight"; payload: Record<string, unknown>; }
 interface TeacherResponseData { message?: string; destination?: "chat" | "board"; }
 interface AgentResultItem { agent_name: string; ok: boolean; data?: TeacherResponseData; }

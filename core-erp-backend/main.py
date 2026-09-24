@@ -38,7 +38,7 @@ setup_tracing(app=app, engine=_db_engine)
 # en producción debe ser el dominio real del frontend, NUNCA "*" cuando
 # se usan credenciales/tokens de autenticación.
 _default_origins = "http://localhost:5173,http://127.0.0.1:5173"
-allowed_origins = os.getenv("CORS_ALLOWED_ORIGINS", _default_origins).split(",")
+allowed_origins = [origin.strip() for origin in os.getenv("CORS_ALLOWED_ORIGINS", _default_origins).split(",") if origin.strip()]
 
 app.add_middleware(
     CORSMiddleware,
@@ -181,6 +181,20 @@ app.include_router(students.router)
 app.include_router(billing.router)
 app.include_router(privacy.router)
 app.include_router(academic_memory.router)
+
+# Compatibilidad con el portal ERP desplegado en Vercel, que consume
+# /api/v1/*, conservando las rutas sin prefijo usadas por immersive-frontend.
+for router in (
+    auth.router,
+    agents.router,
+    classrooms.router,
+    grades.router,
+    students.router,
+    billing.router,
+    privacy.router,
+    academic_memory.router,
+):
+    app.include_router(router, prefix="/api/v1", include_in_schema=False)
 
 
 @app.get("/", tags=["Status"])
