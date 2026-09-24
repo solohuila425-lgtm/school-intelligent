@@ -45,7 +45,7 @@ DATABASE_URL=postgresql+psycopg://erp:password@localhost:5432/erp_educativo
 REDIS_URL=redis://localhost:6379/0
 API_BASE_URL=http://localhost:8000
 JWT_SECRET=replace-with-a-long-random-secret
-CORS_ORIGINS=http://localhost:5173
+CORS_ORIGINS=http://localhost:5173,https://school-intelligent-jet.vercel.app
 RATE_LIMIT_ENABLED=true
 ```
 

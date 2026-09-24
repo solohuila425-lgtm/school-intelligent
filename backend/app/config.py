@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     default_currency: str = "COP"
     jwt_secret: str = "development-secret-change-me-erp-educativo-2026"
     jwt_expire_minutes: int = 60
-    cors_origins: str = "http://localhost:5173"
+    cors_origins: str = "http://localhost:5173,https://school-intelligent-jet.vercel.app"
     rate_limit_enabled: bool = False
     rate_limit_per_tenant_per_minute: int = 300
     rate_limit_per_ip_per_minute: int = 60
