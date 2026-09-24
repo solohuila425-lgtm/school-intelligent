@@ -4,7 +4,7 @@
   "buildCommand": "cd immersive-frontend && npm run build",
   "outputDirectory": "immersive-frontend/dist",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/immersive-frontend/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "trailingSlash": false
 }
